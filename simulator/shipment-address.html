@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>场景四 · 微信修改收货地址</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="shipment-engine.js"></script>
+  <script defer src="shipment-view.js"></script>
+  <script defer src="shipment-address.js"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">阅</span>自主阅读<span class="divider"></span><span class="brand-sub">服务设计</span></div>
+    <a class="secondary nav-link" href="order-app.html">返回 App 原型</a>
+  </header>
+  <main class="workspace shipment-workspace">
+    <header class="intro">
+      <h1>场景四 · 微信修改收货地址</h1>
+      <p>体验临时回老家和搬家两种情况。页面使用示例地址。</p>
+    </header>
+    <section class="panel conversation shipment-wechat" aria-labelledby="address-heading">
+      <header class="conversation-head"><div><p class="eyebrow">微信私聊 · 小林妈妈 · 本地演示</p><h2 id="address-heading">阅读指导师 · 扶摇</h2></div></header>
+      <div class="chat" id="wechat-chat" role="log" aria-label="微信改址对话"></div>
+      <footer class="actions shipment-help-actions">
+        <button class="secondary" type="button" id="temporary">临时回老家</button>
+        <button class="secondary" type="button" id="ongoing">搬家了</button>
+        <button class="primary" type="button" id="verify-shipment" hidden></button>
+      </footer>
+    </section>
+    <dialog id="address-card" class="shipment-dialog" aria-labelledby="address-card-title">
+      <header><h2 id="address-card-title">修改收货地址</h2><form method="dialog"><button class="secondary">关闭</button></form></header>
+      <form id="address-form">
+        <p id="address-order" class="eyebrow"></p>
+        <fieldset>
+          <legend>修改范围</legend>
+          <label><input type="radio" name="scope" id="scope-temporary" value="temporary" required> 只改这一箱</label>
+          <label><input type="radio" name="scope" id="scope-ongoing" value="ongoing"> 后续都寄新地址</label>
+        </fieldset>
+        <p id="address-status" class="eyebrow"></p>
+        <p id="new-address" class="eyebrow"></p>
+        <dl id="address-preview" class="outcome address-receipt" aria-label="保存后的收货地址" aria-live="polite"></dl>
+        <button class="primary address-submit" type="submit">确认改地址</button>
+      </form>
+    </dialog>
+  </main>
+</body>
+</html>

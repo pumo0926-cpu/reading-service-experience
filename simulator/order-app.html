@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>阅读 App · 支付后服务体验</title>
+  <link rel="stylesheet" href="order-app.css">
+  <script defer src="shipment-engine.js"></script>
+  <script defer src="order-app.js"></script>
+</head>
+<body>
+  <header class="desk-header">
+    <a class="wordmark" href="order-app.html"><span aria-hidden="true">阅</span> 首月服务</a>
+    <nav aria-label="原型导航">
+      <button id="profile-entry" class="plain" type="button">我的</button>
+
+    </nav>
+  </header>
+  <main class="desk">
+    <header class="desk-intro">
+      <h1>支付后服务体验</h1>
+      <p>切换方案，看看家长在支付后为什么愿意添加指导师。</p>
+    </header>
+    <aside class="desk-sidebar">
+      <div class="control-card variant-control">
+        <h2>支付后加指导师的三种方式</h2>
+        <div id="teacher-variants" role="group" aria-label="切换添加指导师的方式"></div>
+      </div>
+      <div class="control-card">
+        <h2>场景一｜主动查物流路径演示</h2>
+        <p class="logistics-demo-note">适合有网购习惯、想在 App 里自己查物流的家长。</p>
+        <p class="logistics-demo-path">我的 → 全部订单 → 阅读全年系统包 → 查看物流</p>
+        <button id="start-logistics-demo" class="primary" type="button">从「我的」开始</button>
+        <details class="logistics-demo-controls">
+          <summary>模拟包裹状态</summary>
+          <div id="test-states" role="group" aria-label="模拟包裹状态"></div>
+          <p id="logistics-demo-result" class="logistics-demo-note" role="status"></p>
+          <div id="wechat-notices" class="wechat-notices" role="log" aria-label="指导师微信模拟消息" hidden></div>
+        </details>
+      </div>
+      <div class="control-card logistics-scenario">
+        <h2>场景二｜指导师首联主动提示订阅</h2>
+        <p class="logistics-demo-note">适合刚报名、想了解孩子怎么在 App 自主阅读，也希望及时收到绘本物流提醒的家长。</p>
+        <p class="logistics-demo-path">聊首月阅读规划 → 说明配套绘本寄送 → 订阅物流提醒</p>
+        <a class="primary logistics-demo-link" id="start-first-contact" href="shipment.html" aria-controls="scenario-preview">看指导师怎么开口</a>
+        <p class="logistics-demo-note">可模拟 7 天内发货的完整提醒，也可体验首购满 7 天仍未发货时的微信跟进。</p>
+      </div>
+      <div class="control-card logistics-scenario">
+        <h2>场景三｜家长有问题直接问指导师</h2>
+        <p class="logistics-demo-note">适合习惯在微信直接问人、希望指导师帮忙查件的家长。查到进度后，可以继续在微信问，也可以订阅到站提醒。</p>
+        <p class="logistics-demo-path">微信问指导师 → 查到包裹进度 → 选择后续提醒方式</p>
+        <a class="primary logistics-demo-link" id="start-ask-teacher" href="shipment-help.html" aria-controls="scenario-preview">体验直接问指导师</a>
+      </div>
+      <div class="control-card logistics-scenario">
+        <h2>场景四｜微信修改收货地址</h2>
+        <p class="logistics-demo-note">适合临时换地方收书，或搬家后想把后续绘本都寄到新地址的家长。</p>
+        <p class="logistics-demo-path">微信问指导师 → 小程序确认改址范围 → 核对本箱和后续地址</p>
+        <a class="primary logistics-demo-link" id="start-change-address" href="shipment-address.html" aria-controls="scenario-preview">体验微信改地址</a>
+      </div>
+      <button id="restart" class="plain" type="button">重新体验</button>
+      <p class="desk-note">本地原型 · 示例订单与封面</p>
+    </aside>
+    <section class="phone" id="phone" aria-label="阅读 App 演示">
+      <header class="phone-header">
+        <button id="back" class="icon-button" type="button" aria-label="返回上一页" hidden>‹</button>
+        <h2 id="screen-title" tabindex="-1"></h2>
+      </header>
+      <div id="screen"></div>
+      <div id="scenario-preview" hidden></div>
+      <div id="chat-shortcuts" class="chat-shortcuts" role="group" aria-label="物流服务" hidden></div>
+      <div id="announcement" class="sr-only" role="status"></div>
+    </section>
+  </main>
+  <dialog id="dialog" aria-labelledby="dialog-title">
+    <header><h2 id="dialog-title"></h2><button id="close-dialog" class="icon-button" type="button" aria-label="关闭">×</button></header>
+    <div id="dialog-body"></div>
+  </dialog>
+</body>
+</html>

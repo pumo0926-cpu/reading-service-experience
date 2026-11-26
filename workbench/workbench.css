@@ -1,0 +1,34 @@
+.work-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+.work-panel { min-width: 0; padding: clamp(16px, 2.5vw, 27px); }
+.section-head, .rule-head { display: flex; align-items: start; justify-content: space-between; gap: 12px; }
+.section-head h2 { font-size: 1.2rem; }
+.section-head p, .hint { margin-top: 7px; color: var(--muted); font-size: .875rem; line-height: 1.55; }
+.section-head button { flex: 0 0 auto; }
+.rules, .field-grid { display: grid; gap: 12px; margin-top: 15px; }
+.rule-card { display: grid; gap: 10px; border: 1px solid var(--line); border-radius: 10px; padding: 13px; background: #f8faf8; }
+.field { display: grid; gap: 5px; font-size: .875rem; }
+.field input, .field textarea { width: 100%; border: 1px solid #bccdc1; border-radius: 7px; background: white; color: inherit; font: inherit; padding: 8px; }
+.field textarea { resize: vertical; }
+.field input:focus-visible, .field textarea:focus-visible, summary:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.toggle { display: flex; align-items: center; gap: 6px; font-size: .875rem; }
+.toggle input { width: 16px; height: 16px; accent-color: var(--green); }
+.secondary:disabled { opacity: .5; cursor: default; }
+.sample-picker { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 12px; }
+.sample-picker button { overflow-wrap: anywhere; }
+.sample-picker [aria-pressed="true"] { background: #e0eee3; border-color: #b2cbb9; }
+.comparison { grid-column: 1 / -1; }
+.comparison-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.comparison-grid article { background: #f4f7f4; border: 1px solid var(--line); border-radius: 12px; padding: 15px; }
+.comparison-grid article:last-child { background: #eaf5ee; }
+.comparison-grid h3 { font-size: 1rem; }
+.question, .reply, .evidence { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.6; }
+.question { margin: 14px 0; }
+.reply, .evidence { margin-top: 8px; }
+.evidence { font-size: .875rem; color: var(--muted); }
+details { margin-top: 16px; }
+details p { margin-top: 9px; overflow-wrap: anywhere; }
+summary { cursor: pointer; color: var(--green); }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f7f4; padding: 12px; border-radius: 8px; }
+@media (max-width: 650px) {
+  .work-grid, .comparison-grid { grid-template-columns: minmax(0, 1fr); }
+}

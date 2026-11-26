@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>场景三 · 微信直接问物流</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="shipment-engine.js"></script>
+  <script defer src="shipment-view.js"></script>
+  <script defer src="shipment-help.js"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">阅</span>自主阅读<span class="divider"></span><span class="brand-sub">服务设计</span></div>
+    <a class="secondary nav-link" href="shipment.html">场景二 · 订阅提醒</a>
+  </header>
+  <main class="workspace shipment-workspace">
+    <header class="intro">
+      <h1>场景三 · 微信直接问物流</h1>
+      <p>小林妈妈没有订阅提醒，查物流习惯直接找指导师。订单和预计送达时间均为演示数据。</p>
+    </header>
+    <section class="panel conversation shipment-wechat" aria-labelledby="help-heading">
+      <header class="conversation-head"><div><p class="eyebrow">微信私聊 · 小林妈妈</p><h2 id="help-heading">阅读指导师 · 扶摇</h2></div></header>
+      <div class="chat" id="wechat-chat" role="log" aria-label="微信查件对话">
+        <div class="message parent"><span class="speaker">小林妈妈</span><p class="bubble" id="first-question">扶摇老师，孩子的书发了没呀？</p></div>
+        <div id="first-responses" hidden>
+          <div class="message"><span class="speaker">指导师扶摇</span><p class="bubble" id="first-reply"></p></div>
+          <div class="message"><span class="speaker">指导师扶摇</span><p class="bubble">您平时要是顾不上查，点一下订阅，书到驿站微信会提醒您。您想起来直接问我也行，发我一句，我帮您查。</p></div>
+        </div>
+        <div class="message parent" id="declined" hidden><span class="speaker">小林妈妈</span><p class="bubble">那我先不订了哈，有事儿我再来问您。</p></div>
+        <p class="app-update shipment-subscription-confirmation" id="confirmed" hidden>已订阅物流提醒</p>
+        <div id="second-exchange" hidden>
+          <div class="message parent"><span class="speaker">小林妈妈</span><p class="bubble">扶摇老师，书今天到了吗？我一会儿下班，能顺路取吗？</p></div>
+          <div class="message"><span class="speaker">指导师扶摇</span><p class="bubble" id="second-reply"></p></div>
+        </div>
+        <div id="notifications" role="log" aria-label="小程序物流通知"></div>
+      </div>
+      <footer class="actions shipment-help-actions">
+        <button class="primary" id="show-reply" type="button">查看扶摇老师的回复</button>
+        <button class="secondary" id="subscribe-logistics" type="button" hidden>订阅物流提醒</button>
+        <button class="secondary" id="decline-subscription" type="button" hidden>暂不订阅</button>
+        <button class="secondary" id="arrive" type="button" hidden></button>
+        <button class="secondary" id="replay" type="button" hidden>重新体验</button>
+      </footer>
+    </section>
+    <dialog id="logistics-card" class="shipment-dialog" aria-labelledby="card-title">
+      <header><h2 id="card-title"></h2><form method="dialog"><button class="secondary">关闭</button></form></header>
+      <div id="card-content"></div>
+    </dialog>
+  </main>
+</body>
+</html>

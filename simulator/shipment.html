@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>首月主动物流提醒</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="shipment-engine.js"></script>
+  <script defer src="shipment-view.js"></script>
+  <script defer src="shipment.js"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">阅</span>自主阅读<span class="divider"></span><span class="brand-sub">服务设计</span></div>
+
+  </header>
+  <main class="workspace shipment-workspace">
+    <header class="intro">
+      <h1>场景二 · 微信物流提醒</h1>
+      <p>和指导师聊聊什么时候读、读完怎么引导、中断后怎么接着读，再订阅配套绘本的物流提醒。</p>
+      <p><a class="secondary nav-link" href="order-app.html">体验 App 订单物流</a>　<a class="secondary nav-link" href="shipment-help.html">场景三 · 微信直接问物流</a></p>
+    </header>
+    <section class="panel conversation shipment-wechat" aria-labelledby="notification-heading">
+      <header class="conversation-head"><div><p class="eyebrow">微信私聊 · 小林妈妈</p><h2 id="notification-heading">阅读指导师 · 扶摇</h2></div></header>
+      <div class="chat" id="wechat-chat">
+        <div id="invitation" role="log" aria-label="指导师首联对话"></div>
+        <p id="delay-status" class="eyebrow" role="status"></p>
+        <div id="delay-notifications" role="log" aria-label="指导师发货进度说明"></div>
+        <div id="notifications" role="log" aria-label="小程序物流通知"></div>
+        <div id="after-sales" role="log" aria-label="教材售后微信对话"></div>
+      </div>
+      <footer class="actions shipment-help-actions">
+        <button id="advance" class="primary" type="button"></button>
+        <button id="simulate-delay" class="secondary" type="button" hidden>模拟满 7 天仍未发货</button>
+        <button id="replacement-update" class="secondary" type="button" hidden>模拟补寄发货</button>
+        <button id="replay" class="secondary" type="button" hidden>重新体验</button>
+      </footer>
+    </section>
+    <dialog id="logistics-card" class="shipment-dialog" aria-labelledby="card-title">
+      <header><h2 id="card-title"></h2><form method="dialog"><button class="secondary">关闭</button></form></header>
+      <div id="card-content"></div>
+      <form id="subscription" hidden>
+        <fieldset><legend>选择希望接收的提醒</legend>
+          <label><input type="checkbox" name="topic" value="shipped" checked> 已发货</label>
+          <label><input type="checkbox" name="topic" value="arrived" checked> 已到驿站</label>
+          <label><input type="checkbox" name="topic" value="reminder" checked> 提醒取件</label>
+        </fieldset>
+        <p id="subscription-error" role="alert" hidden>请至少选择一项提醒。</p>
+        <button class="primary" type="submit">允许订阅</button>
+      </form>
+    </dialog>
+  </main>
+</body>
+</html>

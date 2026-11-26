@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>M1 阅读服务工作台</title>
+  <link rel="stylesheet" href="../simulator/style.css">
+  <link rel="stylesheet" href="workbench.css">
+
+  <script defer src="engine.js"></script>
+  <script defer src="workbench.js"></script>
+</head>
+<body>
+  <header class="top"><div class="brand"><span class="brand-mark" aria-hidden="true">阅</span>自主阅读<span class="divider"></span><span class="brand-sub">服务设计</span></div><a class="secondary nav-link" href="../simulator/order-app.html">返回体验优化</a></header>
+  <main class="workspace">
+    <header class="intro"><h1>阅读服务工作台</h1><p>配置 AI 服务指令，用同一个用户样本回放过去的服务与优化方案。</p></header>
+    <div class="work-grid">
+      <section class="panel work-panel" aria-labelledby="rules-heading">
+        <div class="section-head"><div><h2 id="rules-heading">B 端指令配置</h2><p>按列表顺序匹配，采用第一条命中的启用规则。</p></div><button id="add-rule" type="button" class="secondary">新增规则</button></div>
+        <div id="rules" class="rules"></div>
+      </section>
+      <section class="panel work-panel" aria-labelledby="samples-heading">
+        <div class="section-head"><div><h2 id="samples-heading">用户样本</h2><p>每个样本独立保存，可以切换样本复用同一组规则。</p></div><button id="add-sample" type="button" class="secondary">新增样本</button></div>
+        <div id="samples" class="sample-picker" role="group" aria-label="切换用户样本"></div>
+        <div id="fields" class="field-grid"></div>
+        <p id="storage" class="hint" role="status"></p>
+      </section>
+      <section class="panel work-panel comparison" aria-labelledby="comparison-heading">
+        <div class="section-head"><div><h2 id="comparison-heading">同样本体验对比</h2><p>历史侧录入原始回复和结果，优化侧查看命中指令和预设模拟回复。</p></div><button id="run" type="button" class="primary">运行对比</button></div>
+        <p id="status" class="hint" role="status"></p>
+        <div id="results" hidden>
+          <p id="question" class="question"></p>
+          <div class="comparison-grid">
+            <article><h3>过去的体验</h3><p class="reply" id="past-reply"></p><p class="evidence" id="past-result"></p></article>
+            <article><h3>优化后的体验</h3><p class="reply" id="new-reply"></p><p class="evidence" id="new-result"></p></article>
+          </div>
+          <details id="request"><summary>查看命中规则与待接入的 AI 请求</summary><p id="match"></p><pre id="payload"></pre></details>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
